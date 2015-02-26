@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="healthInsuranceInformation.table">
+		<class name="Company" table="companies">
+		<id name="id" column="company_id" type="java.lang.Integer">
+			<generator class="increment" />
+		</id>
+		
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="hotline" column="hotline" type="java.lang.String" />
+		</class>
+	</hibernate-mapping>
