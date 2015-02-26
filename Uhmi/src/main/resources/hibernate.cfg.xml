@@ -11,5 +11,6 @@
     		<property name="hibernate.connection.password">5yaa7zz4</property>
     		
     		<mapping resource="company.hbm.xml"/>
+    		<mapping resource="typeOfClients.hbm.xml"/>
     	</session-factory>
     </hibernate-configuration>
