@@ -4,21 +4,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "types_of_clients")
 public class TypeOfClients {
-	@javax.persistence.Id
+	@Id
 	@Column(name = "type_of_clients_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	private int id;
 	
 	@Column(name = "name")
 	private String name;
 	
-	public void setId(int Id) {
-		this.Id = Id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public void setName(String name) {
@@ -26,10 +27,15 @@ public class TypeOfClients {
 	} 
 	
 	public int getId() {
-		return Id;
+		return id;
 	}
 	
 	public String getName() {
 		return name;
 	}
+	
+	@Override
+    public String toString() {
+       return "TypeOfClients[ id= " + id + ", name= " + name + " ]";
+    }
 }
