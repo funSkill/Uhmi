@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="healthInsuranceInformation.table">
+		<class name="Program" table="programs">
+		<id name="id" column="program_id" type="java.lang.Integer" >
+			<generator class="increment" />
+		</id>		
+		
+		<many-to-one name="company" column="company_id" class="healthInsuranceInformation.table.Company" lazy="false" />
+		<many-to-one name="typeOfClients" column="type_of_clients_id" class="healthInsuranceInformation.table.TypeOfClients" lazy="false" />
+		<property name="programName" column="program_name" type="java.lang.String" lazy="false"/>
+		<property name="insurer" column="insurer" type="java.lang.String" lazy="false"/>
+		<property name="age" column="age" type="java.lang.String" lazy="false"/>
+		<property name="additionalInsurerRequirements" column="additional_insurer_requirements" type="java.lang.String" lazy="false"/>
+		<property name="insuranceAmount" column="insurance_amount" type="java.lang.String" lazy="false"/>
+		<property name="insuranceTariff" column="insurance_tariff" type="java.lang.String" lazy="false"/>
+		<property name="insurancePayment" column="insurance_payment" type="java.lang.String" lazy="false"/>
+		<property name="risks" column="risks" type="java.lang.String" lazy="false"/>
+		<property name="medicalInstitutions" column="medical_institutions" type="java.lang.String" lazy="false"/>
+		<property name="franchise" column="franchise" type="java.lang.String" lazy="false"/>
+		<property name="methodOfPayment" column="method_of_payment" type="java.lang.String" lazy="false"/>
+		<property name="territory" column="territory" type="java.lang.String" lazy="false"/>
+		<property name="periodOfValidity" column="period_of_validity" type="java.lang.String" lazy="false"/>
+		<property name="requiredDocuments" column="required_documents" type="java.lang.String" lazy="false"/>
+		<property name="availabilityServiceAssistance" column="availability_service_assistance" type="java.lang.String" lazy="false"/>
+		<property name="previousMedicalExamination" column="previous_medical_examination" type="java.lang.String" lazy="false"/>
+		<property name="samplePolis" column="sample_polis" type="java.lang.String" lazy="false"/>
+		<property name="programConsist" column="program_consist" type="java.lang.String" lazy="false"/>
+		<property name="dentistry" column="dentistry" type="java.lang.String" lazy="false"/>
+		<property name="discounts" column="discounts" type="java.lang.String" lazy="false"/>
+		<property name="specialConditionsParticularInsurer" column="special_conditions_particular_insurer" type="java.lang.String" lazy="false"/>
+		<property name="insuranceBenefits" column="insurance_benefits" type="java.lang.String" lazy="false"/>
+		 
+		</class>
+	</hibernate-mapping>
