@@ -14,6 +14,11 @@ import com.uhmi.service.ProgramService;
 @Transactional
 public class ProgramServiceImpl implements ProgramService{
 
+	@Override
+	public void saveProgram(Program program) {
+		dao.saveProgram(program);
+	}
+	
 	 @Autowired
 	 private ProgramDao dao;
 	
@@ -21,4 +26,8 @@ public class ProgramServiceImpl implements ProgramService{
 		return dao.findAllPrograms();
 	}
 
+	@Override
+	public void deleteProgramById(int id) {
+		dao.deleteProgramById(id);		
+	}
 }

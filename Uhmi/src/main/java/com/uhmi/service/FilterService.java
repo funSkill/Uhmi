@@ -7,4 +7,6 @@ import com.uhmi.model.Filter;
 public interface FilterService {
 
 	List<Filter> findAllFilters();
+	
+	void deleteFilterById(int id);
 }

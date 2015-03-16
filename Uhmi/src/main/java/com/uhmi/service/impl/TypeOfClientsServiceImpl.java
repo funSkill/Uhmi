@@ -14,10 +14,20 @@ import com.uhmi.service.TypeOfClientsService;
 @Transactional
 public class TypeOfClientsServiceImpl implements TypeOfClientsService{
 
+	@Override
+	public void saveTypeOfClients(TypeOfClients typeOfClients) {
+		dao.saveTypeOfClients(typeOfClients);	
+	}
+	
 	@Autowired
 	private TypeOfClientsDao dao;
 	
 	public List<TypeOfClients> findAllTypesOfClients() {
 		return dao.findAllTypesOfClients();
 	}
+
+	@Override
+	public void deleteTypeOfClientsById(int id) {
+		dao.deleteTypeOfClientsById(id);		
+	}	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,6 +23,15 @@ import com.uhmi.service.TypeOfClientsService;
 @Controller
 @RequestMapping("/")
 public class AppController {
+	
+	/*
+	 * This method will provide to show administrator panel.
+	 */
+	@RequestMapping(value = { "/administrator" }, method = RequestMethod.GET)
+	public String showAdminPage(ModelMap model) {
+		return "admin_panel";
+	}
+	
 
 	@Autowired
 	CompanyService companyService;
@@ -36,6 +46,42 @@ public class AppController {
 		model.addAttribute("companies", companies);
 		return "all_companies";
 	}
+	
+	/*
+	 * This method will provide the medium to add a new company.
+	 */
+	@RequestMapping(value = { "/new-company" }, method = RequestMethod.GET)
+	public String newCompany(ModelMap model) {
+		Company company = new Company();
+		model.addAttribute("company", company);
+		return "newCompanyForm";
+	}
+	
+	/*
+	 * This method will be called on form submission, handling POST request for
+	 * saving employee in database.
+	 */
+	@RequestMapping(value = { "/new-company" }, method = RequestMethod.POST)
+	public String saveCompany(Company company, ModelMap model) {
+
+		companyService.saveCompany(company);
+
+		model.addAttribute("success", "Company " + company.getName()
+				+ " registered successfully");
+		model.addAttribute("linkToAllElems","/companies");
+		model.addAttribute("nameElems","All Companies");
+		return "success";
+	}
+	
+	
+	/*
+     * This method will delete an company by it's id value.
+     */
+    @RequestMapping(value = { "/delete-{id}-company" }, method = RequestMethod.GET)
+    public String deleteCompany(@PathVariable int id) {
+    	companyService.deleteCompanyById(id);
+        return "redirect:/companies";
+    }
 	
 	
 	@Autowired
@@ -52,6 +98,41 @@ public class AppController {
 		return "all_types_of_clients";
 	}
 	
+	/*
+	 * This method will provide the medium to add a new type of clients.
+	 */
+	@RequestMapping(value = { "/new-type-of-clients" }, method = RequestMethod.GET)
+	public String newTypeOfClients(ModelMap model) {
+		TypeOfClients toc = new TypeOfClients();
+		model.addAttribute("toc", toc);
+		return "newTypeOfClients";
+	}
+	
+	/*
+	 * This method will be called on form submission, handling POST request for
+	 * saving type of clients in database.
+	 */
+	@RequestMapping(value = { "/new-type-of-clients" }, method = RequestMethod.POST)
+	public String saveTypeOfClients(TypeOfClients typeOfClients, ModelMap model) {
+
+		tofcService.saveTypeOfClients(typeOfClients);
+
+		model.addAttribute("success", "TypeOfClients" + typeOfClients.getName()
+				+ " registered successfully");
+		model.addAttribute("linkToAllElems","/types-of-clients");
+		model.addAttribute("nameElems","All Types Of Clients");
+		return "success";
+	}
+	
+	/*
+     * This method will delete an types-of-clients by it's id value.
+     */
+    @RequestMapping(value = { "/delete-{id}-types-of-clients" }, method = RequestMethod.GET)
+    public String deleteTypesOfClients(@PathVariable int id) {
+    	tofcService.deleteTypeOfClientsById(id);;
+        return "redirect:/types-of-clients";
+    }
+	
 	
 	@Autowired
 	ProgramService programService;
@@ -66,6 +147,43 @@ public class AppController {
 		model.addAttribute("programs", programs);
 		return "all_programs";
 	}
+	
+	/*
+	 * This method will provide the medium to add a new program.
+	 */
+	@RequestMapping(value = { "/new-program" }, method = RequestMethod.GET)
+	public String newProgram(ModelMap model) {
+		Program program = new Program();
+		model.addAttribute("program", program);
+		return "newProgramForm";
+	}
+	
+	/*
+	 * This method will be called on form submission, handling POST request for
+	 * saving employee in database.
+	 */
+	@RequestMapping(value = { "/new-program" }, method = RequestMethod.POST)
+	public String saveProgram(Program program, ModelMap model) {
+
+		programService.saveProgram(program);
+
+		model.addAttribute("success", "Program " + program.getProgramName() 
+				+ program.getCompany().getName()
+				+ program.getTypeOfClients().getName()
+				+ " registered successfully");
+		model.addAttribute("linkToAllElems","/programs");
+		model.addAttribute("nameElems","All Programs");
+		return "success";
+	}
+	
+	/*
+     * This method will delete an program by it's id value.
+     */
+    @RequestMapping(value = { "/delete-{id}-program" }, method = RequestMethod.GET)
+    public String deleteProgram(@PathVariable int id) {
+    	programService.deleteProgramById(id);;
+        return "redirect:/programs";
+    }
 	
 	
 	@Autowired
@@ -82,6 +200,15 @@ public class AppController {
 		return "all_filters";
 	}
 	
+	/*
+     * This method will delete an filter by it's id value.
+     */
+    @RequestMapping(value = { "/delete-{id}-filter" }, method = RequestMethod.GET)
+    public String deleteFilter(@PathVariable int id) {
+    	filterService.deleteFilterById(id);
+        return "redirect:/filters";
+    }
+	
 	
 	@Autowired
 	ProgramFiltersService programFService;
@@ -96,4 +223,13 @@ public class AppController {
 		model.addAttribute("programsFilters", programsFilters);
 		return "all_programs_filters";
 	}
+	
+	/*
+     * This method will delete an program-filter by it's id value.
+     */
+    @RequestMapping(value = { "/delete-{id}-program-filter" }, method = RequestMethod.GET)
+    public String deleteProgramFilter(@PathVariable int id) {
+    	programFService.deleteProgramFilterById(id);
+        return "redirect:/programs-filters";
+    }
 }

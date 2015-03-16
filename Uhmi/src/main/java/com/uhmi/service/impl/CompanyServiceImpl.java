@@ -17,7 +17,17 @@ public class CompanyServiceImpl implements CompanyService{
 	@Autowired
 	private CompanyDao dao;
 	
+	@Override
+	public void saveCompany(Company company) {
+		dao.saveCompany(company);
+	}
+	
 	public List<Company> findAllCompanies() {
 		return dao.findAllCompanies();
+	}
+
+	@Override
+	public void deleteCompanyById(int id) {
+		dao.deleteCompanyById(id);		
 	}
 }

@@ -7,4 +7,6 @@ import com.uhmi.model.ProgramFilters;
 public interface ProgramFiltersDao {
 	
 	List<ProgramFilters> findAllProgramsFilters();
+	
+	void deleteProgramFilterById(int id); 
 }

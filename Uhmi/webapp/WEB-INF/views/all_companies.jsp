@@ -5,31 +5,69 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insurance companies</title>
-
-	<style>
-		tr:first-child{
-			font-weight: bold;
-			background-color: #C6C9C4;
-		}
-	</style>
-
+	<link href="<c:url value="/resources/themes/adminthemes/default/css/main.css" />" rel="stylesheet"  type="text/css" />
+	<link href="<c:url value="/resources/themes/adminthemes/default/css/bootstrap.min.css" />" rel="stylesheet"  type="text/css" />
 </head>
-
-
 <body>
-	<h2>List of Companies</h2>	
-	<table>
+	<!-- Top Navigation -->
+	<div class="top-menu">
+		<nav class="dropdown-main-menu">
+		  <ul>
+		    <li>
+			    <a href="#">Manage users</a>
+			    <ul class="submenu">
+				    <li><a href="<c:url value='#' />">Admin panel</a></li>
+				    <li><a href="<c:url value='#' />">Client site</a></li>
+				    <li><a href="<c:url value='#' />">Game 1</a></li>
+				    <li><a href="<c:url value='#' />">Game 2</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		    	<a href="#">Manage data</a>
+		    	<ul class="submenu">		    	
+			      	<li><a href="<c:url value='/companies' />">Insurance companies</a></li>			        
+			        <li><a href="<c:url value='/programs' />">Insurance programs</a></li>
+			        <li><a href="<c:url value='#' />">Surveys</a></li>
+		        </ul>
+		    </li>		    
+		  </ul>
+		</nav>
+	</div>
+	<!-- Header -->
+	<header class="header">
+		<div class="container-title">
+			<h1 class="page-title">
+				List of Companies
+			</h1>
+		</div>
+	</header>
+	
+	<!-- Subheader -->
+	<div class="subhead-collapse">
+		<div class="subhead">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="btn-toolbar">
+						<a class="btn btn-success"  href="<c:url value='/new-company' />">Add New Company</a>						
+					</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+		
+	<table class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<tr>
-			<td>NAME</td><td>Hotline</td><td>ID in DB</td>
+			<td>NAME</td><td>Hotline</td><td>ID</td><td>DELETE</td>
 		</tr>
 		<c:forEach var="company" items="${companies}">
 			<tr>
 			<td>${company.name}</td>
 			<td>${company.hotline}</td>
 			<td>${company.id}</td>
+			<td><a href="<c:url value='/delete-${company.id}-company' />">delete</a></td>
 		</tr>
 		</c:forEach>
 	</table>
-	<br/>
+	<br/>	
 </body>
 </html>

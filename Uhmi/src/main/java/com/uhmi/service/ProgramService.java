@@ -6,5 +6,9 @@ import com.uhmi.model.Program;
 
 public interface ProgramService {
 	
+	void saveProgram(Program program);
+	
 	List<Program> findAllPrograms();
+	
+	void deleteProgramById(int id);
 }

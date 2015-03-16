@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.uhmi.dao.AbstractDao;
@@ -21,4 +22,13 @@ public class ProgramFiltersDaoImpl extends AbstractDao implements ProgramFilters
 		programsFilters = criteria.list();
 		return programsFilters;
 	}
+
+	@Override
+	public void deleteProgramFilterById(int id) {
+		Query query = getSession().createSQLQuery("delete from program_filters where id = :id");
+	    query.setInteger("id", id);
+	    query.executeUpdate();
+	}
+
+	
 }

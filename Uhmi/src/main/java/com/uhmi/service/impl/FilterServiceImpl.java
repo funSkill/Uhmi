@@ -19,5 +19,10 @@ public class FilterServiceImpl implements FilterService{
 	
 	public List<Filter> findAllFilters() {
 		return dao.findAllFilters();
+	}
+
+	@Override
+	public void deleteFilterById(int id) {
+		dao.deleteFilterById(id);
 	}	
 }

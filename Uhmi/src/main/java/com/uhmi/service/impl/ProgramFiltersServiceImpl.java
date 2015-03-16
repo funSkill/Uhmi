@@ -22,4 +22,8 @@ public class ProgramFiltersServiceImpl implements ProgramFiltersService {
 		return dao.findAllProgramsFilters();
 	}
 
+	@Override
+	public void deleteProgramFilterById(int id) {
+		dao.deleteProgramFilterById(id);		
+	}
 }
