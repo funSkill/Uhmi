@@ -36,6 +36,7 @@ function GridInsPrograms() {
             filterCheckboxName = params.filteringInsurancePrograms.filterCheckboxName;
             filterParams = params.filteringInsurancePrograms.filters;
 
+            showEl(filtersBarId);
             showShortCuts();
             showMessage(1);
             setOnClick();
