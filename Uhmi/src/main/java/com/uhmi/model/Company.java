@@ -7,19 +7,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.uhmi.jackson.View;
+
 @Entity
 @Table(name = "company")
 public class Company {
 	
 	@Id
-	@Column(name = "company_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "company_id")	
+	@GeneratedValue(strategy = GenerationType.AUTO)	
+	@JsonView(View.Summary.class)
 	private int id;
 	
 	@Column(name = "name")
+	@JsonView(View.Summary.class)
 	private String name;
 	
 	@Column(name = "hotline")
+	@JsonView(View.Summary.class)
 	private String hotline;
 	
 	public void setId(int id) {

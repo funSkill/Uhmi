@@ -22,6 +22,11 @@ public class CompanyServiceImpl implements CompanyService{
 		dao.saveCompany(company);
 	}
 	
+	@Override
+	public Company getCompany(int id) {		
+		return dao.getCompany(id);
+	}
+	
 	public List<Company> findAllCompanies() {
 		return dao.findAllCompanies();
 	}
@@ -29,5 +34,5 @@ public class CompanyServiceImpl implements CompanyService{
 	@Override
 	public void deleteCompanyById(int id) {
 		dao.deleteCompanyById(id);		
-	}
+	}	
 }

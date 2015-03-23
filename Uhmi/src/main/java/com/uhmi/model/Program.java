@@ -9,6 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.uhmi.jackson.View;
+
 @Entity
 @Table(name = "program")
 public class Program {
@@ -16,87 +19,119 @@ public class Program {
 	@Id
 	@Column(name = "program_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(View.Summary.class)
 	private int id;
 	
 	@ManyToOne  
-	@JoinColumn(name ="company_id") 
+	@JoinColumn(name ="company_id")
+	@JsonView(View.Summary.class)
 	private Company company;
 	
 	@ManyToOne  
 	@JoinColumn(name ="type_of_clients_id")
+	@JsonView(View.Summary.class)
 	private TypeOfClients typeOfClients;
 	
 	@Column(name = "program_name")
+	@JsonView(View.Summary.class)
 	private String programName;
 	
 	@Column(name = "insurer")
+	@JsonView(View.Summary.class)
 	private String insurer;
 	
 	@Column(name = "age")
+	@JsonView(View.Summary.class)
 	private String age;
 	
 	@Column(name = "additional_insurer_requirements")
+	@JsonView(View.Summary.class)
 	private String additionalInsurerRequirements;
 	
 	@Column(name = "insurance_amount")
+	@JsonView(View.Summary.class)
 	private String insuranceAmount;
 	
 	@Column(name = "insurance_tariff")
+	@JsonView(View.Summary.class)
 	private String insuranceTariff;
 	
 	@Column(name = "insurance_payment")
+	@JsonView(View.Summary.class)
 	private String insurancePayment;
 	
 	@Column(name = "risks")
+	@JsonView(View.Summary.class)
 	private String risks;
 	
 	@Column(name = "medical_institutions")
+	@JsonView(View.Summary.class)
 	private String medicalInstitutions;
 	
 	@Column(name = "franchise")
+	@JsonView(View.Summary.class)
 	private String franchise;
 	
 	@Column(name = "method_of_payment")
+	@JsonView(View.Summary.class)
 	private String methodOfPayment;
 	
 	@Column(name = "territory")
+	@JsonView(View.Summary.class)
 	private String territory;
 	
 	@Column(name = "period_of_validity")
+	@JsonView(View.Summary.class)
 	private String periodOfValidity;
 	
 	@Column(name = "required_documents")
+	@JsonView(View.Summary.class)
 	private String requiredDocuments;
 	
 	@Column(name = "availability_service_assistance")
+	@JsonView(View.Summary.class)
 	private String availabilityServiceAssistance;
 	
 	@Column(name = "previous_medical_examination")
+	@JsonView(View.Summary.class)
 	private String previousMedicalExamination;
 	
 	@Column(name = "sample_polis")
+	@JsonView(View.Summary.class)
 	private String samplePolis;
 	
 	@Column(name = "program_consist")
+	@JsonView(View.Summary.class)
 	private String programConsist;
 	
 	@Column(name = "dentistry")
+	@JsonView(View.Summary.class)
 	private String dentistry;
 	
 	@Column(name = "discounts")
+	@JsonView(View.Summary.class)
 	private String discounts;
 	
 	@Column(name = "special_conditions_particular_insurer")
+	@JsonView(View.Summary.class)
 	private String specialConditionsParticularInsurer;
 	
 	@Column(name = "insurance_benefits")
+	@JsonView(View.Summary.class)
 	private String insuranceBenefits;
 	
 	@Column(name = "additionally")
+	@JsonView(View.Summary.class)
 	private String additionally;
 	
 	@Column(name = "insured_event")
+	@JsonView(View.Summary.class)
 	private String insuredEvent;
+	
+	@ManyToOne  
+	@JoinColumn(name ="filters")
+	@JsonView(View.Summary.class)
+	private FilterList filterList;
 
 	public int getId() {
 		return id;
@@ -314,6 +349,14 @@ public class Program {
 
 	public void setInsuredEvent(String insuredEvent) {
 		this.insuredEvent = insuredEvent;
+	}
+	
+	public FilterList getFilterList() {
+		return filterList;
+	}
+
+	public void setFilterList(FilterList filterList) {
+		this.filterList = filterList;
 	}
 	
 	@Override

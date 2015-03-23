@@ -16,6 +16,9 @@
 	<div class="top-menu">
 		<nav class="dropdown-main-menu">
 		  <ul>
+		  	<li>
+			    <a href="<c:url value='/' />">Site</a>			    
+		    </li>
 		    <li>
 			    <a href="#">Manage users</a>
 			    <ul class="submenu">

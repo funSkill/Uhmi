@@ -18,6 +18,13 @@ public class CompanyDaoImpl extends AbstractDao implements CompanyDao{
 		persist(company);		
 	}
 	
+	@Override
+	public Company getCompany(int id) {
+		Company result = null;
+		result = (Company) getSession().get(Company.class, id);
+		return result;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Company> findAllCompanies() {
 		Criteria criteria = getSession().createCriteria(Company.class);
@@ -29,5 +36,5 @@ public class CompanyDaoImpl extends AbstractDao implements CompanyDao{
 		Query query = getSession().createSQLQuery("delete from Company where company_id = :id");
 	    query.setInteger("id", id);
 	    query.executeUpdate();
-	}
+	}	
 }

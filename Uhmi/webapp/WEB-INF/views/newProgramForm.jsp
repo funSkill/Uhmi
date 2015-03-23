@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>New Company Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
 	<link href="<c:url value="/resources/themes/adminthemes/default/css/main.css" />" rel="stylesheet"  type="text/css" />
 	<link href="<c:url value="/resources/themes/adminthemes/default/css/bootstrap.min.css" />" rel="stylesheet"  type="text/css" />
 </head>
@@ -43,10 +40,10 @@
 	<header class="header">
 		<div class="container-title">
 			<h1 class="page-title">
-				New Company Form
+				TODO
 			</h1>
 		</div>
-	</header> 
+	</header>
 	
 	<!-- Subheader -->
 	<div class="subhead-collapse">
@@ -54,23 +51,11 @@
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="btn-toolbar">
-						<a class="btn btn-default"  href="<c:url value='/companies' />">List of All Companies</a>						
+						<a class="btn btn-default"  href="<c:url value='#' />">List of All Programs</a>						
 					</div>
 				</div>			
 			</div>
 		</div>
 	</div>
-		
-	<form:form method="POST" class="new-data-form" modelAttribute="company">	
-		<div class="form-group">	
-			<label for="name">Company Name: </label>
-			<form:input path="name" class="form-control" id="name" placeholder="Enter company name" />	
-		</div>	
-		<div class="form-group">    
-			<label for="hotline">Hotline: </label>
-			<form:input path="hotline" class="form-control" id="hotline" placeholder="Enter company hotline" />
-		</div>		    
-		<input type="submit" class="btn btn-primary" value="Create"/>			
-	</form:form>
 </body>
 </html>

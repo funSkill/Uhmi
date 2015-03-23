@@ -1,0 +1,105 @@
+body{
+	.companies-container{
+		max-width: 84%;
+		  margin: 40px auto 0;
+		
+		.btn-company{
+			width: 262px;
+			margin: 8px;
+			line-height: 200px;
+		}	
+	}
+	.btn-bar{
+	  padding-left: 24px;
+	}
+/*##############################################################*/
+	.filtersBarTitle{
+    width: 80%;
+    margin: 0 auto;
+}
+.filtersBar{
+    width: 80%;
+    margin: 15px auto;
+    padding: 15px 15px 45px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+}
+#filtersBar{
+  	display: none;
+}
+.filter{
+    margin-right: 15px;
+    padding: 10px;
+    float: left;
+}
+.filter input{
+    margin-right: 2px !important;
+    cursor: pointer;
+    display: block;
+    float: left;
+}
+.filter span{
+    display: block;
+}
+.filtersBar .buttonsBar{
+    margin: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.table{
+    max-width: 80% !important;
+    margin: 0 auto;
+}
+.table tr td{
+    cursor: pointer;
+}
+.trHeader{
+    width: 20% !important;
+    text-align: right;
+}
+.trItem{
+    /*width: 44% !important;*/
+    font-weight: bold;
+}
+.hideElement{
+    display: none;
+}
+.showElement{
+    display: inline;
+}
+@media only screen and (max-width: 800px) {
+    .filtersBar{
+        padding-bottom: 45px;
+    }
+    .dataTables_wrapper{
+        overflow: hidden;
+    }
+    .lastCellTitle{
+        display: none;
+    }
+    .lastCell{
+        display: none;
+    }
+    .paginate_button{
+        display: none !important;
+    }
+    .previous{
+        display: inline-block !important;
+    }
+    .next{
+        display: inline-block !important;
+    }
+}
+@media only screen and (max-width: 410px) {
+    .filtersBar{
+        padding-bottom: 80px;
+    }
+    .filtersBar .buttonsBar button{
+        margin: 5px 0;
+    }
+}
+/*##############################################################*/
+
+}

@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.uhmi.jackson.View;
+
 @Entity
 @Table(name = "program_filters")
 public class ProgramFilters {
@@ -16,16 +19,19 @@ public class ProgramFilters {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(View.Summary.class)
 	private int id;
 	
 	@ManyToOne  
 	@JoinColumn(name ="program_id")
+	@JsonView(View.Summary.class)
 	private Program program;
 	
 	@ManyToOne  
 	@JoinColumn(name ="filter_id")
-	private Filter filter;
-
+	@JsonView(View.Summary.class)
+	private Filter filter;	
+	
 	public int getId() {
 		return id;
 	}
@@ -48,7 +54,7 @@ public class ProgramFilters {
 
 	public void setFilter(Filter filter) {
 		this.filter = filter;
-	}
+	}	
 	
 	@Override
     public String toString() {

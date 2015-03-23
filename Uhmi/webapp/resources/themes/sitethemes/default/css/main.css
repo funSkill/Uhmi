@@ -1,0 +1,103 @@
+body {
+  /*##############################################################*/
+  /*##############################################################*/
+}
+body .companies-container {
+  max-width: 84%;
+  margin: 40px auto 0;
+}
+body .companies-container .btn-company {
+  width: 262px;
+  margin: 8px;
+  line-height: 200px;
+}
+body .btn-bar {
+  padding-left: 24px;
+}
+body .filtersBarTitle {
+  width: 80%;
+  margin: 0 auto;
+}
+body .filtersBar {
+  width: 80%;
+  margin: 15px auto;
+  padding: 15px 15px 45px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  position: relative;
+}
+body #filtersBar {
+  display: none;
+}
+body .filter {
+  margin-right: 15px;
+  padding: 10px;
+  float: left;
+}
+body .filter input {
+  margin-right: 2px !important;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+body .filter span {
+  display: block;
+}
+body .filtersBar .buttonsBar {
+  margin: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+body .table {
+  max-width: 80% !important;
+  margin: 0 auto;
+}
+body .table tr td {
+  cursor: pointer;
+}
+body .trHeader {
+  width: 20% !important;
+  text-align: right;
+}
+body .trItem {
+  /*width: 44% !important;*/
+  font-weight: bold;
+}
+body .hideElement {
+  display: none;
+}
+body .showElement {
+  display: inline;
+}
+@media only screen and (max-width: 800px) {
+  body .filtersBar {
+    padding-bottom: 45px;
+  }
+  body .dataTables_wrapper {
+    overflow: hidden;
+  }
+  body .lastCellTitle {
+    display: none;
+  }
+  body .lastCell {
+    display: none;
+  }
+  body .paginate_button {
+    display: none !important;
+  }
+  body .previous {
+    display: inline-block !important;
+  }
+  body .next {
+    display: inline-block !important;
+  }
+}
+@media only screen and (max-width: 410px) {
+  body .filtersBar {
+    padding-bottom: 80px;
+  }
+  body .filtersBar .buttonsBar button {
+    margin: 5px 0;
+  }
+}
