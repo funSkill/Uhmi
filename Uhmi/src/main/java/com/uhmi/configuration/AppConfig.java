@@ -18,6 +18,11 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "com.uhmi")
 public class AppConfig extends WebMvcConfigurerAdapter{
 	
+	@Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+		
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();		
@@ -27,16 +32,11 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 		return viewResolver;
 	}
 	
-	@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
-	
 	@Bean
 	public Jackson2ObjectMapperBuilder jacksonBuilder() {
 		Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
 		builder.indentOutput(true);
 		builder.dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
 		return builder;
-	}	
+	}
 }

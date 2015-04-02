@@ -14,6 +14,14 @@ body .companies-container .btn-company {
 body .btn-bar {
   padding-left: 24px;
 }
+body .form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+body .form-signin .form-control {
+  margin: 10px 0;
+}
 body .filtersBarTitle {
   width: 80%;
   margin: 0 auto;

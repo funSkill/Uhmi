@@ -8,7 +8,19 @@ body{
 		.dropdown-main-menu{
 			width: 100%;
 			position: absolute;
-			  background: #13294a;
+			background: #13294a;
+			
+			#userRole{
+				float: right;
+			}
+			.btn-log-out-adm-panel{
+				float: right;
+			}
+			.btn-log-out-adm-panel form{
+				margin-bottom: 0px;
+				margin-top: 6px;
+				margin-right: 5px;
+			}  
 			ul{
 				margin: 0;
 				padding: 0;

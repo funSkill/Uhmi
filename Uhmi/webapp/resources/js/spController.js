@@ -2,7 +2,7 @@ function singlePageController(){
 	var companyName = $("#insCompanyName").text();
 	var allInsPrograms = getPrograms();
 	if(companyName){
-		console.log(companyName);
+		//console.log(companyName);
 		var carrentPrograms = getCarrentPrograms(allInsPrograms, companyName);
 		getGridInsPrograms(carrentPrograms);
 	}

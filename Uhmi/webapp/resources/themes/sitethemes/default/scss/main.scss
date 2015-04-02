@@ -12,6 +12,17 @@ body{
 	.btn-bar{
 	  padding-left: 24px;
 	}
+	
+	.form-signin{
+	  max-width: 330px;
+	  padding: 15px;
+	  margin: 0 auto;
+	  
+	  .form-control{
+	  	  margin: 10px 0;
+	  }
+	}
+	
 /*##############################################################*/
 	.filtersBarTitle{
     width: 80%;
